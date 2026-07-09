@@ -7,7 +7,7 @@ Welcome to the official Scrawldraw Libraries documentation. This guide is design
 ## How to Create and Publish Your Library
 
 ### 1. Sketch Your Objects
-Open your workspace canvas on Scrawldraw (https://scrawldraw.vercel.app) and draw the specific assets, diagrams, or UI components you want to package.
+Open your workspace canvas on [Scrawldraw](https://scrawldraw.vercel.app) and draw the specific assets, diagrams, or UI components you want to package.
 
 ### 2. Group for Seamless Reuse (Recommended)
 To ensure your complex components behave as a single, unified unit when dragged onto a new canvas, select all the individual paths or shapes of an object and press `Ctrl + G` (or click **Group Selection** in the side menu).
@@ -29,7 +29,7 @@ To ensure your complex components behave as a single, unified unit when dragged 
 
 ## Submission and Quality Guidelines
 
-To maintain a clean, high-utility, and professional ecosystem within the Scrawldraw Library Marketplace, all incoming submissions must strictly satisfy the following criteria:
+ To maintain a clean, high-utility, and professional ecosystem within the Scrawldraw Library Marketplace, all incoming submissions must strictly satisfy the following criteria:
 
 | Rule Type | Requirement Details |
 | :--- | :--- |
