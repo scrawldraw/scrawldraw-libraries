@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+    <meta name="description" content="A directory of public libraries that you can easily add to Scrawldraw." />
+    <meta name="image" content="og-image.png" />
+
+    <meta property="og:url" content="https://libraries.scrawldraw.com" />
+    <meta property="og:site_name" content="Scrawldraw" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" name="twitter:title" content="Scrawldraw Libraries" />
+    <meta property="og:description" name="twitter:description"
+        content="A directory of public libraries that you can easily add to Scrawldraw." />
+    <meta property="og:image" name="twitter:image" content="https://scrawldraw.vercel.app/og-image.png" />
+    <meta property="og:image:secure_url" name="twitter:image" content="https://scrawldraw.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="669" />
+    <meta property="og:image:alt" content="Scrawldraw logo with byline." />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Scrawldraw Libraries</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-color/1.7.0/open-color.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css/normalize.min.css" />
+    <link rel="icon" href="favicon.ico" />
+
+    <style>
+        @font-face {
+            font-family: "Virgil";
+            src: url("https://scrawldraw.vercel.app/FG_Virgil.woff2");
+        }
+
+        *:focus {
+            box-shadow: 0 0 0 2px var(--link-hover);
+            outline: none;
+        }
+
+        :root {
+            --text: var(--oc-gray-7);
+            --muted: var(--oc-gray-6);
+            --link: var(--oc-blue-8);
+            --link-hover: var(--oc-blue-9);
+            --primary: var(--oc-lime-8);
+            --primary-hover: var(--oc-lime-9);
+            --vertical-padding: 32px;
+            --horizontal-padding: 16px;
+            --border-color: var(--oc-gray-4);
+            --surface: var(--oc-gray-0);
+            --surface-alt: var(--oc-gray-1);
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+                "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+                "Segoe UI Symbol";
+        }
+
+        html[data-theme="dark"] {
+            --text: var(--oc-gray-2);
+            --muted: var(--oc-gray-5);
+            --link: var(--oc-blue-4);
+            --link-hover: var(--oc-blue-3);
+            --primary: var(--oc-lime-4);
+            --primary-hover: var(--oc-lime-3);
+            --border-color: var(--oc-gray-7);
+            --surface: var(--oc-gray-9);
+            --surface-alt: var(--oc-gray-8);
+        }
+
+        * {
+            font-family: var(--font-family);
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            background-color: var(--surface);
+            color: var(--text);
+            width: 100%;
+            min-height: 100%;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        body {
+            overflow-y: scroll;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        .icon {
+            border: none;
+            background: none;
+        }
+
+        .content {
+            width: 800px;
+            max-width: 100%;
+            margin: 0 auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        /* --- Top nav --- */
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1em 1.5em;
+            background-color: var(--surface);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 10;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .nav-brand-mark {
+            width: 28px;
+            height: 28px;
+            background-color: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Virgil", var(--font-family);
+            font-weight: 700;
+            color: var(--oc-gray-9);
+        }
+
+        #theme {
+            text-transform: capitalize;
+            display: flex;
+        }
+
+        /* --- Header / hero --- */
+        header {
+            text-align: center;
+            margin: 0 auto;
+            max-width: 100%;
+            width: 640px;
+            padding: 56px var(--horizontal-padding) 24px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.75em;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--primary);
+            background-color: var(--surface-alt);
+            padding: 4px 12px;
+            border-radius: 999px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-family: "Virgil", var(--font-family);
+            font-size: 3em;
+            margin: 0 0 12px;
+        }
+
+        .lead {
+            font-size: 1.15em;
+            color: var(--muted);
+            margin: 0 0 20px;
+        }
+
+        .helper-links {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .small,
+        small {
+            color: var(--muted);
+            font-size: 0.8em;
+            font-weight: 300;
+        }
+
+        a {
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--link);
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: var(--link-hover);
+        }
+
+        /* --- Filters / sort / search ---
+        .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin: 24px 0 8px;
+        } */
+
+        .chip {
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--border-color);
+            font-size: 0.85em;
+            cursor: pointer;
+            color: var(--text);
+            transition: all 0.15s ease;
+        }
+
+        .chip:hover {
+            border-color: var(--link);
+            color: var(--link);
+        }
+
+        .chip-selected {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: var(--oc-gray-9);
+            font-weight: 600;
+        }
+
+        /* #sort {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        #sort-template {
+            display: none;
+        } */
+
+        .option {
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        .option:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        .option-selected {
+            color: var(--text);
+            cursor: auto;
+            pointer-events: none;
+        }
+
+        /* #sort select {
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            background-color: var(--surface);
+            color: var(--text);
+            font-family: var(--font-family);
+        } */
+
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .search-tip {
+            font-size: 0.8em;
+            color: var(--muted);
+            margin-top: 0.625em;
+        }
+
+        #search-input {
+            padding: 0.7em 1.2em;
+            border-radius: 0.8em;
+            width: 300px;
+            max-width: 90%;
+            border: 1px solid var(--border-color);
+            background-color: var(--surface);
+            color: var(--text);
+        }
+
+        /* --- Library cards --- */
+        #template {
+            display: none;
+        }
+
+        .library {
+            padding: var(--vertical-padding) var(--horizontal-padding);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .library img {
+            float: right;
+            max-height: 96px;
+            max-width: 50%;
+            margin-left: 8px;
+            padding: 4px;
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+        }
+
+        .library h2 {
+            margin: 0;
+        }
+
+        .library h2>a {
+            visibility: hidden;
+        }
+
+        .library h2:hover>a {
+            visibility: visible;
+        }
+
+        .library .downloads {
+            font-weight: 600;
+            margin: 8px 0;
+            opacity: 0.8;
+        }
+
+        .library .authors {
+            margin: 8px 0;
+        }
+
+        .library .updated,
+        .library .created {
+            font-size: 0.7em;
+            color: var(--muted);
+            margin: 8px 0;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin: 8px 0;
+        }
+
+        .tag {
+            background-color: var(--surface-alt);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-size: 0.7em;
+            color: var(--muted);
+            text-transform: capitalize;
+        }
+
+        .actions {
+            margin-top: 32px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            margin: 5px;
+            margin-right: 12px;
+            border: 1px solid var(--link);
+            padding: 8px 16px;
+            border-radius: 4px;
+            white-space: nowrap;
+            background: none;
+            cursor: pointer;
+            font-family: var(--font-family);
+            font-size: 1em;
+            color: var(--link);
+        }
+
+        .btn:hover {
+            border-color: var(--link-hover);
+            text-decoration: none;
+            border-width: 2px;
+            padding: 7px 15px;
+        }
+
+        .primary {
+            color: var(--primary);
+            font-size: 1.1em;
+            font-weight: 600;
+            border: 1px solid var(--primary);
+        }
+
+        .primary:hover {
+            color: var(--primary-hover);
+            border-color: var(--primary-hover);
+        }
+
+        .copy-toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background-color: var(--oc-gray-9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            z-index: 1000;
+        }
+
+        .copy-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .icon {
+            display: flex;
+            user-select: none;
+        }
+
+        .icon svg {
+            width: 1em;
+            height: 1em;
+            color: var(--text);
+        }
+
+        .is-hidden {
+            display: none;
+        }
+
+        /* --- Rich footer --- */
+        footer {
+            margin-top: 64px;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--surface-alt);
+        }
+
+        .footer-inner {
+            width: 800px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 48px var(--horizontal-padding) 24px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .footer-col h3 {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+            margin: 0 0 14px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col ul a {
+            color: var(--text);
+            font-weight: 400;
+            font-size: 0.9em;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--link);
+        }
+
+        .footer-brand-mark {
+            width: 32px;
+            height: 32px;
+            background-color: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Virgil", var(--font-family);
+            font-weight: 700;
+            color: var(--oc-gray-9);
+            margin-bottom: 12px;
+        }
+
+        .footer-tagline {
+            font-size: 0.9em;
+            color: var(--muted);
+            max-width: 240px;
+            line-height: 1.5;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.85em;
+            color: var(--muted);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-bottom-links a {
+            color: var(--muted);
+            font-weight: 400;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--link);
+        }
+
+
+.scroll-to-footer-btn {
+    background-color: #000000; /* Var(--primary) ki jagah pure black */
+    color: #ffffff; /* Arrow ko white kar diya taaki black par dikhe */
+    border: none;
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: var(--oc-gray-9);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2), 0 1px 4px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(16px) scale(0.9);
+    transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    z-index: 999;
+}
+
+.scroll-to-footer-btn.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+.scroll-to-footer-btn:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(0, 0, 0, 0.18);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.scroll-to-footer-btn:active {
+    transform: translateY(0) scale(0.96);
+}
+
+.scroll-to-footer-btn svg {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.scroll-to-footer-btn #arrow-down {
+opacity: 1;
+    pointer-events: auto;
+    transform: scale(1) rotate(0deg);
+}
+
+.scroll-to-footer-btn #arrow-up {
+opacity: 0;
+    pointer-events: none;
+    transform: scale(0.7) rotate(-90deg);
+}
+
+.scroll-to-footer-btn.at-footer #arrow-down {
+opacity: 0;
+    pointer-events: none;
+    transform: scale(0.7) rotate(90deg);
+}
+
+.scroll-to-footer-btn.at-footer #arrow-up {
+opacity: 1;
+    pointer-events: auto;
+    transform: scale(1) rotate(0deg);
+}
+
+
+        .long-info-text {
+            margin: 12px 0;
+            line-height: 1.6;
+        }
+
+        .long-info-text.is-collapsed {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more-btn {
+            background: none;
+            border: none;
+            color: var(--link);
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0;
+            font-size: 0.9em;
+        }
+
+        .read-more-btn:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 640px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-387204-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "UA-387204-13");
+        window.trackEvent = function (category, name, label, value) {
+            window.gtag("event", name, {
+                event_category: category,
+                event_label: label,
+                value,
+            });
+        };
+
+        // Apply saved theme before paint to avoid flash
+        (function () {
+            const saved = localStorage.getItem("scrawl-theme");
+            const theme = saved || "light";
+            document.documentElement.setAttribute("data-theme", theme);
+        })();
+    </script>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-brand">
+            <span class="nav-brand-mark">S</span>
+            <span>Scrawldraw Libraries</span>
+        </div>
+        <div id="theme">
+            <button id="dark" class="icon option" aria-label="Switch to dark mode">
+                <svg width="20" height="20" viewBox="0 0 512 512">
+                    <path fill="currentColor"
+                        d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z">
+                    </path>
+                </svg>
+            </button>
+            <button id="light" class="icon option is-hidden" aria-label="Switch to light mode">
+                <svg width="20" height="20" viewBox="0 0 512 512">
+                    <path fill="currentColor"
+                        d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <div class="content">
+        <header>
+            <span class="eyebrow">Free & open source</span>
+            <h1>Scrawldraw Libraries</h1>
+            <p class="lead">
+                A directory of public libraries that you can easily drop straight into your
+                <a href="https://scrawldraw.vercel.app/">Scrawldraw</a> canvas.
+            </p>
+            <div class="helper-links">
+                <span>
+                    Want to contribute? Follow the
+                    <a href="https://github.com/Scrawldraw/Scrawldraw-libs#create-your-own-library">submission
+                        guide</a>
+                    to add your own library to this list.
+                </span>
+                <span class="small">
+                    Every library here is shared under the
+                    <a href="https://github.com/Scrawldraw/Scrawldraw-libs/blob/main/LICENSE" target="_license">MIT
+                        License</a>.
+                </span>
+            </div>
+
+            <!-- <div id="category-filters" class="category-filters">
+                <span class="chip chip-selected" data-category="all">All</span>
+            </div>
+
+            <div id="sort">
+                <span id="sort-contents">Sort by </span>
+                <span id="sort-template" class="option">{label}</span>
+            </div> -->
+
+            <p class="search-container">
+                <input type="search" id="search-input" placeholder="Search libraries..." autocorrect="off" />
+                <span class="search-tip">Tip — you can start typing anywhere on the page to search</span>
+            </p>
+        </header>
+
+        <main>
+            <div class="library" id="template">
+                <img data-src="{preview}" alt="{name}" class="lazy" />
+                <h2>{name} <a aria-label="Anchor" href="#{libraryId}">#</a></h2>
+                <div class="tags">{categoryTags}</div>
+                <p class="authors">{authors}</p>
+                <p class="downloads">
+                    <span title="Downloads ({week} this week)">⬇️ {total}</span>
+                </p>
+                <div class="dates">
+                    <p class="created">Created: {created}</p>
+                    <p class="updated">Updated: {updated}</p>
+                </div>
+                <p>{description}</p>
+                <p class="long-info-text">
+                    Scrawldraw libraries are a resource built for every creator, designer, teacher, and developer who
+                    wants to bring their diagrams, sketches, and ideas to life quickly in that signature hand-drawn
+                    style. When starting a new project, a significant amount of time is often spent creating basic
+                    shapes, icons, and templates from scratch — this is exactly where a good library comes in handy.
+                    Elements from these libraries can be dragged directly onto your canvas and used immediately, without
+                    the need to design anything from the ground up. Each library is built and maintained by members of
+                    the community, so quality and style can vary from one to the next, but most libraries are designed
+                    to fit seamlessly into any project. Whether you're a teacher creating diagrams for the classroom, a
+                    developer explaining system architecture, or a designer sketching out quick wireframes, these
+                    libraries offer plenty of resources to save you time. Every library goes through a basic review
+                    process before being added to this directory, ensuring that elements function correctly and that no
+                    harmful or broken content is included. Libraries are updated over time — whenever the original
+                    author adds a new element or fixes an issue, that update is reflected directly in this directory as
+                    well. Download counts help indicate which libraries are the most popular and which templates people
+                    are actually using the most, making it easier for new users to decide where to start. Each library
+                    has its own unique link that can be shared directly, whether with a colleague or within an online
+                    community. Clicking "Add to Scrawldraw" imports the entire library straight into your canvas, where
+                    every element can be freely customized — colors can be changed, sizes adjusted, or elements combined
+                    to create entirely new diagrams. The whole system is open source, meaning any developer can view a
+                    library's source code, fork it, or contribute their own library to the community. This approach not
+                    only improves the tool itself but also builds a community where everyone learns from each other's
+                    work. If you're new to Scrawldraw, browsing the libraries directory is a great way to discover
+                    what's possible with the tool, without having to manually design every shape yourself. The search
+                    bar makes it easy to quickly find a library that matches your needs, whether it's related to a
+                    specific topic like icons, flowcharts, UI mockups, or fantasy maps. Each library card also lists the
+                    author's name, so you can explore their other contributions as well. Over time, this directory
+                    continues to grow as community members keep submitting new libraries, so if you can't find the
+                    specific library you're looking for today, there's a good chance it will be added soon. Overall,
+                    this directory serves as a central hub for anyone looking to make their visual work faster, more
+                    consistent, and more enjoyable — without letting a lack of design skills stand in the way.
+                </p>
+                <div class="actions">
+                    <a class="btn primary install-library" href="{addToLib}" target="{target}"
+                        onclick="trackEvent('library', 'import', '{libraryId}')">➡️ Add to {appName}</a>
+                    <a class="btn" href="{source}" onclick="trackEvent('library', 'download', '{libraryId}')">⬇️
+                        Download</a>
+                    <button class="btn copy-link-btn" data-library-id="{libraryId}"
+                        onclick="copyLibraryLink('{libraryId}', this)">🔗 Copy link</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <button id="scroll-to-footer" class="scroll-to-footer-btn" aria-label="Jump to footer">
+        <svg id="arrow-down" viewBox="0 0 512 512" fill="currentColor">
+            <path
+                d="M256 352c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L256 274.7l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C272.4 348.9 264.2 352 256 352z" />
+        </svg>
+<svg id="arrow-up" viewBox="0 0 512 512" fill="currentColor">
+    <path d="M256 160c8.188 0 16.38 3.125 22.62 9.375l192 192c12.5 12.5 12.5 32.75 0 45.25s-32.75 12.5-45.25 0L256 237.3 86.63 406.6c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25l192-192C239.6 163.1 247.8 160 256 160z" />
+</svg>
+    </button>
+
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand-mark">S</div>
+                    <p class="footer-tagline">
+                        Scrawldraw is a free, infinite-canvas whiteboard for hand-drawn style
+                        diagrams, sketches, and ideas.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="https://scrawldraw.vercel.app/">Open Scrawldraw</a></li>
+                        <li><a href="https://scrawldraw.vercel.app/#features">Features</a></li>
+                        <li><a href="#">Libraries</a></li>
+                        <li><a href="#">Changelog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://github.com/Scrawldraw/Scrawldraw-libs#create-your-own-library">Submit a
+                                library</a></li>
+                        <li><a href="https://github.com/scrawldraw/scrawldraw-libraries">Source code</a></li>
+                        <li><a href="https://github.com/Scrawldraw/Scrawldraw-libs/blob/main/LICENSE">License</a>
+                        </li>
+                        <li><a href="#">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Community</h3>
+                    <ul>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Twitter / X</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© <span id="footer-year">{currentYear}</span> <a
+                        href="https://scrawldraw.vercel.app/">Scrawldraw</a>. All rights reserved.</span>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="https://github.com/scrawldraw/scrawldraw-libraries">Source Code</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="copy-toast" class="copy-toast">Link copied!</div>
+
+    <script>
+        // --- Theme toggle ---
+        const darkBtn = document.getElementById("dark");
+        const lightBtn = document.getElementById("light");
+
+        function applyThemeButtons() {
+            const current = document.documentElement.getAttribute("data-theme");
+            darkBtn.classList.toggle("is-hidden", current === "dark");
+            lightBtn.classList.toggle("is-hidden", current !== "dark");
+        }
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute("data-theme", theme);
+            localStorage.setItem("scrawl-theme", theme);
+            applyThemeButtons();
+            if (window.trackEvent) trackEvent("theme", "toggle", theme);
+        }
+
+        darkBtn.addEventListener("click", () => setTheme("dark"));
+        lightBtn.addEventListener("click", () => setTheme("light"));
+        applyThemeButtons();
+
+        // --- Footer year ---
+        document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+        // --- Copy link feature ---
+        function copyLibraryLink(libraryId, btnEl) {
+            const url = `${window.location.origin}${window.location.pathname}#${libraryId}`;
+            navigator.clipboard.writeText(url).then(showCopyToast).catch(() => {
+                const tempInput = document.createElement("input");
+                tempInput.value = url;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+                showCopyToast();
+            });
+            if (window.trackEvent) trackEvent("library", "copy_link", libraryId);
+        }
+
+        function showCopyToast() {
+            const toast = document.getElementById("copy-toast");
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 1800);
+        }
+
+        // --- Category filter ---
+        function initCategoryFilters(libraries) {
+            const filterContainer = document.getElementById("category-filters");
+            if (!filterContainer) return;
+
+            const categorySet = new Set();
+            libraries.forEach((lib) => {
+                (lib.categories || []).forEach((cat) => categorySet.add(cat));
+            });
+
+            categorySet.forEach((category) => {
+                const chip = document.createElement("span");
+                chip.className = "chip";
+                chip.textContent = category;
+                chip.dataset.category = category;
+                chip.addEventListener("click", () => selectCategory(category));
+                filterContainer.appendChild(chip);
+            });
+
+            const allChip = filterContainer.querySelector('[data-category="all"]');
+            if (allChip) allChip.addEventListener("click", () => selectCategory("all"));
+        }
+
+        function selectCategory(category) {
+            document.querySelectorAll(".chip").forEach((chip) => {
+                chip.classList.toggle("chip-selected", chip.dataset.category === category);
+            });
+            document.querySelectorAll(".library:not(#template)").forEach((card) => {
+                const cardCategories = (card.dataset.categories || "").split(",");
+                const show = category === "all" || cardCategories.includes(category);
+                card.style.display = show ? "" : "none";
+            });
+            if (window.trackEvent) trackEvent("library", "filter_category", category);
+        }
+
+        // // --- Sort dropdown ---
+        // function initSortDropdown(onSortChange) {
+        //     const sortContainer = document.getElementById("sort");
+        //     if (!sortContainer) return;
+
+        //     const select = document.createElement("select");
+        //     const options = [
+        //         { value: "downloads", label: "Most downloaded" },
+        //         { value: "recent", label: "Recently updated" },
+        //         { value: "name", label: "Name (A-Z)" },
+        //     ];
+        //     options.forEach((opt) => {
+        //         const optionEl = document.createElement("option");
+        //         optionEl.value = opt.value;
+        //         optionEl.textContent = opt.label;
+        //         select.appendChild(optionEl);
+        //     });
+        //     select.addEventListener("change", (e) => {
+        //         onSortChange(e.target.value);
+        //         if (window.trackEvent) trackEvent("library", "sort", e.target.value);
+        //     });
+        //     sortContainer.appendChild(select);
+        // }
+
+
+
+        // --- Scroll button: footer pe jao ya top pe wapas aao ---
+        const scrollBtn = document.getElementById("scroll-to-footer");
+        const footerEl = document.querySelector("footer");
+        const arrowDown = document.getElementById("arrow-down");
+        const arrowUp = document.getElementById("arrow-up");
+        
+
+
+
+
+
+function updateScrollButton() {
+    if (window.scrollY <= 200) {
+        scrollBtn.classList.remove("show");
+        return;
+    }
+    scrollBtn.classList.add("show");
+
+    const footerRect = footerEl.getBoundingClientRect();
+    const atFooter = footerRect.top <= window.innerHeight;
+
+    scrollBtn.classList.toggle("at-footer", atFooter);
+    scrollBtn.setAttribute("aria-label", atFooter ? "Back to top" : "Jump to footer");
+}
+
+window.addEventListener("scroll", updateScrollButton);
+
+scrollBtn.addEventListener("click", () => {
+    const footerRect = footerEl.getBoundingClientRect();
+    const atFooter = footerRect.top <= window.innerHeight;
+
+    if (atFooter) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (window.trackEvent) trackEvent("nav", "scroll_to_top", "click");
+    } else {
+        footerEl.scrollIntoView({ behavior: "smooth" });
+        if (window.trackEvent) trackEvent("nav", "scroll_to_footer", "click");
+    }
+});
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 200) {
+                scrollBtn.classList.add("show");
+            } else {
+                scrollBtn.classList.remove("show");
+            }
+        });
+
+        scrollBtn.addEventListener("click", () => {
+            footerEl.scrollIntoView({ behavior: "smooth" });
+            if (window.trackEvent) trackEvent("nav", "scroll_to_footer", "click");
+        });
+
+
+
+
+        // --- Read more toggle ---
+        function toggleReadMore(btn) {
+            const textEl = btn.previousElementSibling;
+            textEl.classList.toggle("is-collapsed");
+            btn.textContent = textEl.classList.contains("is-collapsed") ? "Read more" : "Show less";
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
