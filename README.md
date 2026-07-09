@@ -1,6 +1,6 @@
 # Scrawldraw Libraries Contributor Guide
 
-Welcome to the official Scrawldraw Libraries documentation. This guide is designed to help developers, designers, and community creators explore existing asset libraries, build custom drawing components, and successfully publish them to the official marketplace at https://libraries.scrawldraw.vercel.app.
+Welcome to the official Scrawldraw Libraries documentation. This guide is designed to help developers, designers, and community creators explore existing asset libraries, build custom drawing components, and successfully publish them to the official marketplace at [libraries.scrawldraw](https://libraries.scrawldraw.vercel.app).
 
 ---
 
@@ -29,7 +29,7 @@ To ensure your complex components behave as a single, unified unit when dragged 
 
 ## Submission and Quality Guidelines
 
- To maintain a clean, high-utility, and professional ecosystem within the Scrawldraw Library Marketplace, all incoming submissions must strictly satisfy the following criteria:
+To maintain a clean, high-utility, and professional ecosystem within the Scrawldraw Library Marketplace, all incoming submissions must strictly satisfy the following criteria:
 
 | Rule Type | Requirement Details |
 | :--- | :--- |
